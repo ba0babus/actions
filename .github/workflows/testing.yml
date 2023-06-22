@@ -1,0 +1,13 @@
+name: testing react app
+on: push
+  jobs:
+    app_test:
+      runs-on: ubuntu-latest
+      steps:
+        - name: get repository code
+          uses: actions/checkout@v3 # берем сторонинй из маркетплейса экшен, который полуает код с хоста
+        - name: install depedis # запускаем npn ci на удаленном серве
+          run: npm ci
+        - name: app test
+          run: npm run test
+
